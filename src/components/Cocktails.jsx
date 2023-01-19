@@ -1,8 +1,18 @@
 import React from 'react'
-
-const Cocktails = () => {
+import { Link } from 'react-router-dom'
+const Cocktails = ({image, name, id, info, glass}) => {
   return (
-    <div>Cocktails</div>
+    <article>
+      <div>
+        <img src={image} alt={image}/>
+      </div>
+      <div>
+        <h3>{name}</h3>
+        <h4>{glass}</h4>
+        <p>{info}</p>
+        <Link to={`/cocktail/${id}}`}>Details</Link>
+      </div>
+    </article>
   )
 }
 

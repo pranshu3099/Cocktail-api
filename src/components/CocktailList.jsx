@@ -1,11 +1,11 @@
 import { useGlobalContext } from "./Context";
 import Cocktails from './Cocktails';
 const CocktailList = ()=>{
-    const {loading, Cocktails} = useGlobalContext();
+    const {loading, cocktails} = useGlobalContext();
     if(loading){
         return <h1>Loading...</h1>
     }
-    if(Cocktails.length<1){
+    if(cocktails.length<1){
         return (
             <h2>
             no cocktails matched your search criteria
@@ -15,7 +15,12 @@ const CocktailList = ()=>{
     return (
         <>
         <div>
-           Cocktail List
+          <h2>Cocktails</h2>
+          <div>
+            {cocktails.map((item)=>{
+                return <Cocktails key={item.id} {...item}/>
+            })}
+          </div>
         </div>
         </>
     )
